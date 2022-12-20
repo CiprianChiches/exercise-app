@@ -1,13 +1,17 @@
 import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
+import Logo from "../assets/images/Logo-2.jpg";
 
 const Footer = () => {
   return (
-    <Box mt="80px" bgcolor="#fff3f4">
+    <Box mt="80px" bgColor="#f3f4ff">
       <Stack gap="40px" alignItems="center" px="40px" pt="24px">
-        <h1>Become Resita Fit Member💪🏼</h1>
-        <Typography mb="20px">
-          <h2>Made by Ciprian Chiches </h2>
+        <img src={Logo} alt="logo" width="100px" height="100px" />
+        <Stack>
+          <Typography variant="h5">Resita Gym</Typography>
+        </Stack>
+        <Typography variant="h5">
+          Made with Love by Ciprian Chiches
         </Typography>
       </Stack>
     </Box>

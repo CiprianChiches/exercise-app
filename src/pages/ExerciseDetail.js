@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
-
 import { exerciseOptions, fetchData, youtubeOptions } from "../utils/fetchData";
 import Detail from "../components/Detail";
 import ExerciseVideos from "../components/ExerciseVideos";
@@ -27,21 +26,25 @@ const ExerciseDetail = () => {
       );
       setExerciseDetail(exerciseDetailData);
 
-      const exerciseVideosData = await fetchData(
+      const exerciseVideoData = await fetchData(
         `${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`,
         youtubeOptions
       );
-      setExerciseVideos(exerciseVideosData.contents);
+      setExerciseVideos(exerciseVideoData.contents);
 
-      const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
+      const targetMuscleExercisesData = await fetchData(
+        `${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`,
+        exerciseOptions
+      );
       setTargetMuscleExercises(targetMuscleExercisesData);
-      const equipmentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
+      const equipmentExercisesData = await fetchData(
+        `${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`,
+        exerciseOptions
+      );
       setEquipmentExercises(equipmentExercisesData);
-    
-  }
-  fetchExercisesData();
-}, [id]);
-
+    };
+    fetchExercisesData();
+  }, [id]);
   return (
     <Box>
       <Detail exerciseDetail={exerciseDetail} />
@@ -49,7 +52,10 @@ const ExerciseDetail = () => {
         exerciseVideos={exerciseVideos}
         name={exerciseDetail.name}
       />
-      <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises} />
+      <SimilarExercises
+        targetMuscleExercises={targetMuscleExercises}
+        equipmentExercises={equipmentExercises}
+      />
     </Box>
   );
 };
