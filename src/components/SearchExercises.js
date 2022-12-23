@@ -36,6 +36,11 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       setExercises(searchedExercises);
     }
   };
+
+
+  
+
+
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
       <Typography
@@ -43,15 +48,17 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         sx={{ fontSize: { lg: "44px", xs: "30px" } }}
         mb="50px"
         textAlign="center"
+        color="#f36100"
       >
         Amazing Exercises you <br /> should know
       </Typography>
       <Box position="relative" mb="72px">
         <TextField
           sx={{
-            input: { fontWeight: "700", border: "none", borderRadius: "4px" },
+            // input: { fontWeight: "700", borderRadius: "4px", },
             width: { lg: "800px", xs: "350px" },
             backgroundColor: "#fff",
+            borderColor: 'main',
           }}
           height="76px"
           value={search}
@@ -59,10 +66,15 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           placeholder="Search Exercises"
           type="text"
         />
+
+
+
+
+
         <Button
           className="search-btn"
           sx={{
-            bgcolor: "#0000ff",
+            bgcolor: "#f36100",
             color: "#fff",
             textTransform: "none",
             width: { lg: "175px", xs: "80px" },
